@@ -3,9 +3,9 @@
 #                       #
 #Developed By Ryan Dydo #
 #                       #
-#Changelog:             # 
+#Changelog: on github   # 
 #                       #
-#Version: Alpha 0.0.1   #
+#Version: Alpha 0.0.2   #
 #########################
 ##Intilize Player Name
 print("Before the games starts, what is your name?")
