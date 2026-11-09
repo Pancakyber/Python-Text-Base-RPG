@@ -17,13 +17,32 @@ import random
 quitGame = False
 ##Initilize Player Stats
 playerLevel = 1
+playerHealth = 100
 playerDamage = 10
 gold = 0
 ##Initialize Items
 wizardStaff = False
-print("---------------------------")
-print("WELCOME TO WIZARD ADVENTURE")
-print("---------------------------")
+nobleSword = False
+archersBow = False
+heavyArmor = False
+lightArmor = False
+mediumArmor = False
+##Item Stats (these are constants)
+WIZARD_STAFF_DAMAGE = 15
+NOBLE_SWORD = 10
+ARCHERS_BOW = 5
+##Initialize Areas
+
+print("----------------------------")
+print("WELCOME TO THE FALL OF CORAK")
+print("----------------------------")
+print("y = yes | n = no | q = quit ")
+print("h = help | i = inventory |  ")
+print("l = location | north = north")
+print("west = west | east = east   ")
+print("south = south               ")
+print("----------------------------")
+
 while quitGame == False:
     gameStart = str(input("game started, would you like to quit?: ")).lower()
     if gameStart == 'y':
