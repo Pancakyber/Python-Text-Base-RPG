@@ -20,6 +20,10 @@ playerLevel = 1
 playerHealth = 100
 playerDamage = 10
 gold = 0
+#Classes
+archerClass = False
+wizardClass = False
+knightClass = False
 ##Initialize Items
 wizardStaff = False
 nobleSword = False
