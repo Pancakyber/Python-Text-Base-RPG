@@ -37,6 +37,13 @@ NOBLE_SWORD = 10
 ARCHERS_BOW = 5
 ##Initialize Areas
 
+#initilize functions
+def levelUp():
+    global playerLevel
+##    print(f"level: {level}")
+    playerLevel = playerLevel + 1
+    print(f"+{level} lvl")
+
 print("----------------------------")
 print("WELCOME TO THE FALL OF CORAK")
 print("----------------------------")
@@ -47,12 +54,13 @@ print("west = west | east = east   ")
 print("south = south               ")
 print("----------------------------")
 
-while quitGame == False:
+while quitGame != True:
     gameStart = str(input("game started, would you like to quit?: ")).lower()
     if gameStart == 'y':
         quitGame == True
+        continue
     elif gameStart == 'n':
         print("ok")
     else:
         print("not an input")
- 
+    print("hello")
