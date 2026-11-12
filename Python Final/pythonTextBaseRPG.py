@@ -56,11 +56,6 @@ def levelUp():
 ##    print(f"level: {level}")
     playerLevel = playerLevel + 1
     print(f"+{level} lvl")
-##ask class
-
-
-
-    
 
 if showMenu:
     print("----------------------------")
@@ -76,33 +71,38 @@ if showMenu:
 
 while quitGame:
 
-
-    print("""There are 3 classes to choose from
+    while classless:
+        print("""There are 3 classes to choose from
 Archer
 Wizard
 Knight""")
-    classSelection = str(input("Which class do you choose?: ")).lower()
-    if classSelection == 'archer':
-        archerClass == True
-        archersBow == True
-        heavyArmor == True
-        playerDamage = playerDamage + ARCHERS_BOW
+        classSelection = str(input("Which class do you choose?: ")).lower()
+        print()
+        if classSelection == 'archer':
+            archerClass = True
+            archersBow = True
+            heavyArmor = True
+            playerDamage = playerDamage + ARCHERS_BOW
+            classless = False
+            
+        elif classSelection == 'wizard':
+            wizardClass = True
+            wizardStaff = True
+            lightArmor = True
+            playerDamage = playerDamage + WIZARD_STAFF
+            classless = False
 
-    elif classSelection == 'wizard':
-        wizardClass == True
-        wizardStaff == True
-        lightArmor == True
-        playerDamage = playerDamage + WIZARD_STAFF
+        elif classSelection == 'knight':
+            knightClass = True
+            nobleSword = True
+            mediumArmor = True
+            playerDamage = playerDamage + NOBLE_SWORD
+            classless = False
+        else:
+            print("not a real class")
 
-    elif classSelection == 'knight':
-        knightClass == True
-        nobleSword == True
-        mediumArmor == True
-        playerDamage = playerDamage + NOBLE_SWORD
-    else:
-        print("not a real class")
-
-    print(f"ah... so you are {playerName} the {classSelection}")
+        print(f"ah... so you are {playerName} the {classSelection}")
+        print()
     
     if newLocation:
 
@@ -132,26 +132,29 @@ Knight""")
     direction = input("what would you to do?: ").lower()
     
     if direction == "north":
-        inField == False
-        inTown == True
+        
+        inField = False
+        inTown = True
+        newLocation = True
     elif direction == "east":
-        inField == False
-        inWoods == True
+        inField = False
+        inWoods = True
+        newLocation = True
     elif direction == "south":
-        inField == False
-        inCave == True
+        inField = False
+        inCave = True
+        newLocation = True
     elif direction == "west":
-        inField == False
-        inFarm == True
+        inField = False
+        inFarm = True
+        newLocation = True
     elif direction == "q":
-        quitGame == False
+        quitGame = False
     elif direction == "h":
         showMenu = True
     elif direction == "i":
         print("----Inventory----")
         print("-----------------")
-        
-
         if wizardStaff:
             print("Wizard Staff")
         if nobleSword:
