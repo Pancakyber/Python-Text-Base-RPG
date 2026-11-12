@@ -51,16 +51,28 @@ print("y = yes | n = no | q = quit ")
 print("h = help | i = inventory |  ")
 print("l = location | north = north")
 print("west = west | east = east   ")
-print("south = south               ")
+print("south = south | e = interact")
 print("----------------------------")
 
 while quitGame != True:
-    gameStart = str(input("game started, would you like to quit?: ")).lower()
-    if gameStart == 'y':
-        quitGame == True
-        continue
-    elif gameStart == 'n':
-        print("ok")
-    else:
-        print("not an input")
-    print("hello")
+    print("""There are 3 classes to choose from
+Archer
+Wizard
+Knight""")
+    classSelection = str(input("Which class do you choose?: ")).lower()
+    if classSelection == 'archer':
+        archerClass == True
+        archersBow == True
+        heavyArmor == True
+    if classSelection == 'wizard':
+        wizardClass == True
+        wizardStaff == True
+        lightArmor == True
+    if classSelection == 'knight':
+        knightClass == True
+        nobleSword == True
+        mediumArmor == True
+    
+
+    print(f"ah... so you are {playerName} the {classSelection}") 
+    
