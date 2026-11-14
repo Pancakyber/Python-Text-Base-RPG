@@ -24,6 +24,7 @@ playerHealth = 100
 playerDamage = 10
 gold = 0
 karma = 50
+xp = 0
 #Classes
 classless = True
 archerClass = False
@@ -52,10 +53,18 @@ inCastle = False
 outsideCastle = False
 #initilize functions
 def levelUp():
-    global playerLevel
+    global playerLevel, playerHealth, playerDamage
 ##    print(f"level: {level}")
     playerLevel = playerLevel + 1
-    print(f"+{level} lvl")
+    playerHealth = playerHealth + 15
+    playerDamage = playerDamage + 3
+    print(f"+{playerLevel} lvl")
+##initilize NPC
+gobbyGoblinAlive = True
+darkLordAlive = True
+##Initilize NPC Health
+gobbyGoblinHealth = 5
+darkLordHealth = 150
 
 if showMenu:
     print("----------------------------")
@@ -66,6 +75,7 @@ if showMenu:
     print("l = location | north = north")
     print("west = west | east = east   ")
     print("south = south | e = interact")
+    print("f = fight |                 ")
     print("----------------------------")
     show_menu = False
 
@@ -103,6 +113,10 @@ Knight""")
 
         print(f"ah... so you are {playerName} the {classSelection}")
         print()
+    ##Check if xp is greater than the playerLevel multiplied by 20 if it is reset xp and call the levelUp function
+    if xp >= playerLevel * 20:
+        xp = xp - playerLevel * 20
+        levelUp()
     
     if newLocation:
 
@@ -114,6 +128,11 @@ Knight""")
             print("in town")
         elif inCave:
             print("in cave")
+            if gobbyGoblinAlive:
+                print("You go into the goblin infested cave, and a small goblin aproaches you!")
+                
+           
+            
         elif inWoods:
             print("in woods")
         elif inFarm:
@@ -167,5 +186,33 @@ Knight""")
             print("Medium Armor")
         if heavyArmor:
             print("Heavy Armor")
+    elif direction == 'e':
+        if inCave and gobbyGoblinAlive:
+            print("Hello I am gobby the goblin, do you have a gold coin I can borrow?")
+    elif direction == 'f':
+        if inCave and gobbyGoblinAlive:
+            while gobbyGoblinHealth > 0:
+                goblin_attack = random.randint(1,3)
+                playerHealth = playerHealth - goblin_attack
+                combat = input("Would you like to attack or heal? a/h: ")
+            ##each attack option hits the goblin
+                if combat == 'a':
+                    print("You attack poor Gobby")
+                    gobbyGoblinHealth = gobbyGoblinHealth - playerDamage
+            ##Heal option during combat    
+                if combat == 'h':
+                    print("you heal")
+                    playerHealth = playerHealth + 3
+            
+                print(f"your health: {playerHealth}")
+                print(f"Gobby's health: {gobbyGoblinHealth}")
+                if gobbyGoblinHealth <= 0:
+                    print("Gobby was defeated! +3 Gold")
+                    gold = gold + 3
+                    karma = karma - 10
+                    xp = xp + 20
+                if playerHealth <= 0:
+                    print("You Die!")
+                    break
             
     
