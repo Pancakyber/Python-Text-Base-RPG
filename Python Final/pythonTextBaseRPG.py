@@ -213,6 +213,7 @@ Knight""")
                     xp = xp + 20
                 if playerHealth <= 0:
                     print("You Die!")
-                    break
+                    quitGame = False
+                    
             
     
